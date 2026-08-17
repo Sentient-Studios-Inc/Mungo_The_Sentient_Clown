@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mungo the Clown • Cape Town's Premier Entertainer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #fdf6ed;
+      color: #2d2d2d;
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .top-bar {
+      background: #1a2e3b;
+      color: white;
+      padding: 12px 0;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border-bottom: 4px solid #f4a261;
+    }
+    .top-bar i { color: #f4a261; margin: 0 6px; }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+    .logo h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.4rem;
+      color: #e63946;
+      line-height: 1;
+    }
+    .logo span {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1a2e3b;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .nav-cta a {
+      background: #25D366;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.2s;
+    }
+    .nav-cta a:hover { transform: scale(1.04); background: #20b85a; }
+
+    .hero { padding: 30px 0 20px; text-align: center; }
+    .hero-badge {
+      background: #e63946;
+      color: white;
+      padding: 6px 24px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 3.2rem;
+      color: #1a2e3b;
+    }
+    .hero h2 i { color: #f4a261; }
+    .hero .subhead { font-size: 1.3rem; font-weight: 700; color: #e63946; }
+    .hero .tagline {
+      font-size: 1.15rem;
+      max-width: 700px;
+      margin: 10px auto 0;
+      color: #4a4a4a;
+    }
+
+    .hero-image {
+      margin: 18px auto 8px;
+      text-align: center;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(26,46,59,0.15);
+    }
+    .gallery-card.clown-card {
+      position: relative;
+      overflow: visible;
+      cursor: pointer;
+      isolation: isolate;
+      background: #8fc7d2;
+      border: 4px solid #1a2e3b;
+      border-radius: 18px;
+      box-shadow: 0 8px 0 #1a2e3b, 0 16px 28px rgba(26,46,59,0.18);
+    }
+    .gallery-card.clown-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: 12px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.2) 2px, transparent 2px) 0 0 / 24px 24px,
+        linear-gradient(rgba(255,255,255,0.2) 2px, transparent 2px) 0 0 / 24px 24px,
+        linear-gradient(180deg, #8fc7d2 0%, #b8dfd5 72%, #f4c46e 72%, #f4c46e 100%);
+    }
+    .clown-decor {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      border-radius: 14px 14px 0 0;
+    }
+    .clown-decor {
+      touch-action: none;
+      overscroll-behavior: none;
+    }
+    .clown-decor .decor-item {
+      position: absolute;
+      line-height: 1;
+      user-select: none;
+      -webkit-user-select: none;
+      pointer-events: none;
+      filter: drop-shadow(2px 3px 0 rgba(26,46,59,0.14));
+      transition: filter 0.15s ease;
+    }
+    .clown-decor .decor-item:hover { filter: drop-shadow(2px 3px 0 rgba(26,46,59,0.28)) brightness(1.08); }
+    .clown-decor .decor-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      image-rendering: pixelated;
+      pointer-events: none;
+    }
+    .clown-decor .pixel-item { width: 48px; }
+    .clown-decor .pixel-item.small { width: 38px; }
+
+    .gallery-card.clown-card > img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 351px;
+      object-fit: contain;
+      display: block;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 10px 14px rgba(26,46,59,0.25));
+      background: transparent;
+      pointer-events: none;
+    }
+    .gallery-card.clown-card.is-making img { animation: none; }
+    .clown-speech {
+      position: absolute;
+      top: 88px;
+      right: max(4%, calc(50% - 310px));
+      z-index: 3;
+      max-width: 230px;
+      padding: 12px 18px;
+      border: 4px solid #1a2e3b;
+      border-radius: 10px;
+      background: #ffd166;
+      color: #1a2e3b;
+      font-weight: 900;
+      line-height: 1.2;
+      text-align: center;
+      box-shadow: 5px 5px 0 #e63946, 0 8px 18px rgba(26,46,59,0.2);
+      animation: speech-pop 0.45s ease-out both;
+      pointer-events: none;
+    }
+    .clown-speech strong,
+    .clown-speech span { display: block; }
+    .clown-speech strong { font-size: 1.05rem; }
+    .clown-speech span { margin-top: 4px; font-size: 0.85rem; }
+    .clown-speech::before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 22px solid #1a2e3b;
+    }
+    .clown-speech::after {
+      content: "";
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 15px solid #ffd166;
+    }
+    @keyframes speech-pop {
+      from { opacity: 0; transform: translateY(8px) scale(0.94); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes speech-bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .highlight-card {
+      background: white;
+      padding: 24px 16px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      text-align: center;
+      border-bottom: 5px solid #f4a261;
+      transition: 0.2s;
+    }
+    .highlight-card:hover { transform: translateY(-6px); }
+    .highlight-card .icon { font-size: 2.6rem; color: #e63946; margin-bottom: 6px; }
+    .highlight-card h3 { font-size: 1.1rem; font-weight: 800; color: #1a2e3b; }
+    .highlight-card p { font-size: 0.9rem; color: #555; font-weight: 600; }
+    .highlight-card .sub { font-weight: 400; color: #777; font-size: 0.8rem; }
+    .highlight-card.premium { border-bottom-color: #e63946; background: #fff6f0; }
+    .highlight-card.premium .icon { color: #f4a261; }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.4rem;
+      color: #1a2e3b;
+      margin: 40px 0 20px;
+    }
+    .section-title i { color: #e63946; margin-right: 10px; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .gallery-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: 0.3s;
+      border: 2px solid transparent;
+    }
+    .gallery-card:hover { transform: scale(1.02); border-color: #f4a261; }
+    .gallery-card.clown-card:hover { transform: none; border-color: #1a2e3b; }
+    .gallery-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-card .caption {
+      padding: 16px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1a2e3b;
+      background: white;
+    }
+    .gallery-card .caption i { color: #e63946; margin-right: 8px; }
+    .gallery-card .caption small {
+      display: block;
+      font-weight: 400;
+      color: #888;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    .balloon-spotlight {
+      background: linear-gradient(135deg, #fff0e6, #ffe8d6);
+      border-radius: 30px;
+      padding: 30px 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      margin: 20px 0 40px;
+      border: 3px dashed #f4a261;
+    }
+    .balloon-spotlight .text { flex: 2; min-width: 220px; }
+    .balloon-spotlight .text h3 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2rem;
+      color: #1a2e3b;
+    }
+    .balloon-spotlight .text h3 i { color: #e63946; }
+    .balloon-spotlight .text p { font-size: 1.1rem; font-weight: 600; }
+    .balloon-spotlight .img-wrap {
+      flex: 1;
+      min-width: 180px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .balloon-spotlight .img-wrap img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .service-item {
+      background: white;
+      padding: 18px 10px;
+      border-radius: 16px;
+      text-align: center;
+      font-weight: 700;
+      color: #1a2e3b;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .service-item i { font-size: 2rem; color: #e63946; display: block; margin-bottom: 6px; }
+
+    .booking-section {
+      background: white;
+      border-radius: 30px;
+      padding: 40px 36px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      margin: 30px 0 40px;
+      border: 2px solid #f4a261;
+      position: relative;
+      overflow: hidden;
+    }
+    .booking-section::before {
+      content: "🎈";
+      font-size: 8rem;
+      position: absolute;
+      right: -10px;
+      bottom: -30px;
+      opacity: 0.06;
+      transform: rotate(-10deg);
+    }
+    .booking-section h3 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2rem;
+      color: #1a2e3b;
+    }
+    .booking-section .sub { color: #666; font-weight: 600; margin-bottom: 24px; }
+    .booking-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-end;
+      position: relative;
+      z-index: 2;
+    }
+    .form-group { flex: 1 1 180px; min-width: 150px; }
+    .form-group label { display: block; font-weight: 800; font-size: 0.9rem; margin-bottom: 4px; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #ddd;
+      border-radius: 16px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      background: #fafafa;
+      transition: 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: #e63946;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(230,57,70,0.1);
+    }
+    .whatsapp-book-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1.2rem;
+      font-family: 'Nunito', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+      transition: 0.2s;
+      flex: 1 1 auto;
+      justify-content: center;
+    }
+    .whatsapp-book-btn:hover { transform: scale(1.02); background: #20b85a; }
+    .whatsapp-book-btn i { font-size: 1.6rem; }
+
+    .direct-contact {
+      text-align: center;
+      padding: 30px 20px;
+      background: #1a2e3b;
+      border-radius: 30px;
+      color: white;
+      margin: 20px 0 40px;
+    }
+    .direct-contact h4 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8rem;
+    }
+    .direct-contact p { opacity: 0.8; margin-bottom: 16px; }
+    .wa-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    .wa-btn {
+      background: #25D366;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.2s;
+      border: 2px solid transparent;
+    }
+    .wa-btn:hover { background: #20b85a; transform: scale(1.04); border-color: white; }
+    .wa-btn.outline { background: transparent; border: 2px solid #25D366; color: #25D366; }
+    .wa-btn.outline:hover { background: #25D366; color: white; }
+    .wa-btn i { font-size: 1.8rem; }
+
+    .quote-block {
+      background: #fff0e6;
+      padding: 30px;
+      border-radius: 30px;
+      border-left: 8px solid #e63946;
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-style: italic;
+      color: #1a2e3b;
+      text-align: center;
+      margin: 20px 0 30px;
+    }
+    .quote-block i { color: #e63946; font-size: 2rem; margin: 0 8px; }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #777;
+      border-top: 2px solid #eee;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+    footer i { color: #e63946; }
+
+    @media (max-width: 700px) {
+      .hero h2 { font-size: 2.2rem; }
+      .booking-section { padding: 28px 20px; }
+      .booking-form { flex-direction: column; }
+      .whatsapp-book-btn { width: 100%; }
+      .wa-btn { width: 100%; justify-content: center; }
+      .balloon-spotlight { flex-direction: column; text-align: center; }
+      .clown-speech { top: 72px; right: 4%; max-width: 190px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <i class="fas fa-star"></i> 29+ YEARS • NELSON MANDELA’S 80TH BIRTHDAY • INTERNATIONAL STAR <i class="fas fa-star"></i>
+</div>
+
+<!-- NAV -->
+<div class="container">
+  <nav>
+    <div class="logo">
+      <h1>🤡 MUNGO</h1>
+      <span>Cape Town's Smile Maker</span>
+    </div>
+    <div class="nav-cta">
+      <a href="#booking"><i class="fab fa-whatsapp"></i> Book Now</a>
+    </div>
+  </nav>
+</div>
+
+<!-- HERO -->
+<div class="container hero">
+  <div class="hero-badge"><i class="fas fa-crown"></i> Cape Town's Most Decorated Clown</div>
+  <h2>Magic, Laughter & <i>Legacy</i></h2>
+  <div class="subhead">One of Cape Town's most decorated clown and entertainer!</div>
+  <p class="tagline">
+    From the streets of Avignon to Nelson Mandela's 80th birthday — Mungo brings world-class
+    clowning, magic, and joy to every event.
+  </p>
+  <div class="hero-image">
+    <img src="/assets/mungohorizontal%20copy-BQzpX99j.png" alt="Mungo the Clown Easter Celebration" />
+  </div>
+</div>
+
+<!-- HIGHLIGHTS -->
+<div class="container">
+  <div class="highlights">
+    <div class="highlight-card premium">
+      <div class="icon"><i class="fas fa-medal"></i></div>
+      <h3>Nelson Mandela’s 80th</h3>
+      <p>Performed at Kruger Park</p>
+      <span class="sub">— A national honour</span>
+    </div>
+    <div class="highlight-card premium">
+      <div class="icon"><i class="fas fa-globe-africa"></i></div>
+      <h3>International Star</h3>
+      <p>France • Spain • Italy • Israel • Egypt • Thailand • Zambia • Zimbabwe</p>
+      <span class="sub">— Global comedy</span>
+    </div>
+    <div class="highlight-card">
+      <div class="icon"><i class="fas fa-user-tie"></i></div>
+      <h3>VP of Zambia’s Family</h3>
+      <p>Hired for granddaughter’s birthday, Lusaka 2013</p>
+      <span class="sub">— Trusted by dignitaries</span>
+    </div>
+    <div class="highlight-card">
+      <div class="icon"><i class="fas fa-star"></i></div>
+      <h3>⭐ 5-Star Rated</h3>
+      <p>Facebook • "Mungo the Clown"</p>
+      <span class="sub">— Raving reviews</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== GALLERY – MUNGO IN ACTION ========== -->
+<div class="container">
+  <h2 class="section-title"><i class="fas fa-images"></i> Mungo in Action</h2>
+<!-- 1. CLICKABLE CLOWN (moved from hero) -->
+<div class="gallery-card clown-card" id="heroClown">
+  <div class="clown-decor" id="clownDecor">
+    <div class="decor-item pixel-item" style="top:6%;left:3%"><img src="/pixel-flower.png" alt="pixel flower"></div>
+    <div class="decor-item pixel-item small" style="top:6%;left:72%"><img src="/pixel-clover.png" alt="pixel clover"></div>
+    <div class="decor-item pixel-item" style="top:68%;left:18%"><img src="/pixel-star.png" alt="pixel star"></div>
+    <div class="decor-item pixel-item small" style="top:39%;left:16%"><img src="/pixel-card.png" alt="pixel playing card"></div>
+    <div class="decor-item pixel-item small" style="top:58%;left:74%"><img src="/pixel-sparkles.png" alt="pixel sparkles"></div>
+    <div class="decor-item pixel-item" style="top:31%;left:80%"><img src="/pixel-circus.png" alt="pixel circus tent"></div>
+    <div class="decor-item pixel-item" style="top:76%;left:6%"><img src="/pixel-butterfly.png" alt="pixel butterfly"></div>
+    <div class="decor-item pixel-item" style="top:39%;left:6%"><img src="/pixel-teddy.png" alt="pixel teddy bear"></div>
+    <div class="decor-item pixel-item" style="top:38%;left:90%"><img src="/pixel-cake.png" alt="pixel cake"></div>
+    <div class="decor-item pixel-item" style="top:78%;left:92%"><img src="/pixel-smiley.webp" alt="pixel smiley"></div>
+    <div class="decor-item pixel-item" style="top:6%;left:20%"><img src="/pixel-die.png" alt="pixel die"></div>
+    <div class="decor-item pixel-item" style="top:8%;left:87%"><img src="/pixel-gift.png" alt="pixel gift"></div>
+    <div class="decor-item pixel-item" style="top:36%;left:30%"><img src="/pixel-balloon.png" alt="pixel balloon"></div>
+    <div class="decor-item pixel-item" style="top:65%;left:68%"><img src="/pixel-sunflower.png" alt="pixel sunflower"></div>
+    <div class="decor-item pixel-item" style="top:85%;left:80%"><img src="/pixel-jester-hat.png" alt="pixel jester hat"></div>
+  </div>
+  <div class="clown-speech" id="clownSpeech"><strong>Tap me!</strong><span>I'll make a balloon dog</span></div>
+  <img src="/left-sprite-idle_first.png" data-animation="/left-sprite-idle.gif" data-final="/left-sprite-idle-final.png" alt="Mungo the Clown" id="clownSprite" />
+  <div class="caption">
+    <i class="fas fa-hand-pointer"></i> Click the Clown <small>Make a balloon dog!</small>
+  </div>
+</div>
+<div class="gallery-grid">
+
+    <!-- 1. YOUR EASTER CELEBRATION PHOTO (featured) -->
+    <div class="gallery-card">
+      <img src="/assets/mungo4-DILYFLMZ.jpeg" 
+           alt="Mungo the Clown Easter Celebration" 
+           style="object-position: center;">
+      <div class="caption">
+        <i class="fas fa-calendar-day"></i> Easter Celebration <small>Mungo spreading joy</small>
+      </div>
+    </div>
+
+    <!-- 2. BALLOON ART (placeholder – replace if you have another) -->
+    <div class="gallery-card">
+      <img src="/assets/Mungo2-BE1DTIPW.jpeg" 
+           alt="Balloon art" 
+           style="object-position: center 30%;">
+      <div class="caption">
+        <i class="fas fa-balloon"></i> Balloon Art <small>Over 50 animal designs</small>
+      </div>
+    </div>
+
+    <!-- 3. MAGIC SHOW (placeholder) -->
+    <div class="gallery-card">
+      <img src="/assets/Mungo3-Db_JnkUI.jpeg" 
+           alt="Mungo performing magic">
+      <div class="caption">
+        <i class="fas fa-hat-wizard"></i> Magic & Illusion <small>Family‑friendly tricks</small>
+      </div>
+    </div>
+
+    <!-- 4. HAPPY KIDS (placeholder) -->
+    <div class="gallery-card">
+      <img src="/assets/mungo5-BiH98h6z.jpeg" 
+           alt="Mungo with happy children">
+      <div class="caption">
+        <i class="fas fa-child"></i> Kids Love Mungo <small>Parties & events</small>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== BALLOON SPOTLIGHT – USING YOUR EASTER PHOTO ===== -->
+  <div class="balloon-spotlight">
+    <div class="text">
+      <h3><i class="fas fa-balloon"></i> Signature Balloon Art</h3>
+      <p>Mungo crafts <strong>over 50 different animals</strong> — from poodles to giraffes!<br>
+      His <strong>Balloon Mimology</strong> act combines comedy with incredible creations.</p>
+      <p style="margin-top: 10px; font-size: 1rem; color: #e63946;">
+        <i class="fas fa-camera"></i> <em>Easter Celebration 2026 – Mungo in action!</em>
+      </p>
+    </div>
+    <div class="img-wrap">
+      <img src="/assets/Mungo1-Dtqd-xZY.jpeg" alt="Mungo Signature Balloon Art">
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="container">
+  <div class="quote-block">
+    <i class="fas fa-quote-left"></i> 
+    Clowning is a universal language that can be understood by the child within us, 
+    in ANY culture, background or religion. 
+    <i class="fas fa-quote-right"></i>
+    <div style="margin-top: 10px; font-weight: 400; font-style: normal; font-size: 1rem;">— Mungo the Clown</div>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<div class="container" id="booking">
+  <div class="booking-section">
+    <h3><i class="fas fa-calendar-check" style="color:#e63946;"></i> Book Mungo for Your Date</h3>
+    <p class="sub">Select your event details, then click to confirm via WhatsApp. <strong>From R1,500</strong></p>
+
+    <div class="booking-form">
+      <div class="form-group">
+        <label for="eventDate"><i class="fas fa-calendar-day"></i> Event Date</label>
+        <input type="date" id="eventDate" min="2026-07-16" required>
+      </div>
+      <div class="form-group">
+        <label for="eventType"><i class="fas fa-tag"></i> Event Type</label>
+        <select id="eventType">
+          <option value="Kids Birthday Party">🎂 Kids Birthday Party</option>
+          <option value="Corporate Event">💼 Corporate Event</option>
+          <option value="Festival / Carnival">🎪 Festival / Carnival</option>
+          <option value="School Show">🏫 School Show</option>
+          <option value="Wedding / Special Occasion">💒 Wedding / Special Occasion</option>
+          <option value="Shopping Centre Promotion">🛍️ Shopping Centre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="eventAddress"><i class="fas fa-map-marker-alt"></i> Address of the Event</label>
+        <input type="text" id="eventAddress" placeholder="e.g. 12 Main Rd, Claremont">
+      </div>
+      <div class="form-group" style="flex: 0 0 auto;">
+        <button class="whatsapp-book-btn" id="bookNowBtn">
+          <i class="fab fa-whatsapp"></i> Book Now via WhatsApp
+        </button>
+      </div>
+    </div>
+    <p style="margin-top: 16px; font-size: 0.9rem; color: #888; z-index: 2; position: relative;">
+      <i class="fas fa-map-pin"></i> Mungo generally performs in <strong>Cape Town and surrounding areas</strong>.
+    </p>
+    <p style="margin-top: 8px; font-size: 0.9rem; color: #888; z-index: 2; position: relative;">
+      <i class="fas fa-shield-alt"></i> Your message will include your selected date, event type & address.
+    </p>
+  </div>
+</div>
+
+<!-- DIRECT WHATSAPP -->
+<div class="container">
+  <div class="direct-contact">
+    <h4><i class="fab fa-whatsapp" style="color: #25D366;"></i> Chat Directly</h4>
+    <p>Click any button below to start a WhatsApp conversation with Mungo right now.</p>
+    <div class="wa-buttons">
+      <a href="https://wa.me/27746846023?text=Hi%20Mungo!" 
+         target="_blank" class="wa-btn">
+        <i class="fab fa-whatsapp"></i> 074 684 6023
+      </a>
+      <a href="https://wa.me/27746846023?text=Hi%20Mungo!%20I%20have%20a%20quick%20question%20about%20your%20shows?" 
+         target="_blank" class="wa-btn outline">
+        <i class="fas fa-question-circle"></i> Ask a Question
+      </a>
+    </div>
+    <p style="margin-top: 16px; font-size: 0.9rem; opacity: 0.7;">
+      <i class="fas fa-phone-alt"></i> Or call / SMS: 074 684 6023 (Cape Town, SA)
+    </p>
+  </div>
+</div>
+
+<!-- CAREER TIMELINE -->
+<div class="container">
+  <div style="background: #fff; padding: 24px 28px; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 20px; border: 1px solid #eee;">
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; text-align: center;">
+      <div><strong style="font-size: 1.6rem; color: #e63946;">1980s</strong><br><span style="font-weight:600;">Avignon Festival</span><br><span style="color:#888;">Inspiration struck</span></div>
+      <div><strong style="font-size: 1.6rem; color: #e63946;">1997</strong><br><span style="font-weight:600;">Mandela’s 80th</span><br><span style="color:#888;">Kruger Park, SA</span></div>
+      <div><strong style="font-size: 1.6rem; color: #e63946;">2013</strong><br><span style="font-weight:600;">Zambia VP</span><br><span style="color:#888;">Lusaka, private hire</span></div>
+      <div><strong style="font-size: 1.6rem; color: #e63946;">2026</strong><br><span style="font-weight:600;">Still making smiles</span><br><span style="color:#888;">29+ years strong</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="container">
+  <p><i class="fas fa-heart"></i> Mungo the Clown • Cape Town, South Africa • <i class="fab fa-whatsapp"></i> 074 684 6023</p>
+  <p style="font-weight: 400; font-size: 0.8rem; margin-top: 6px;">© 2026 • Magical Kids Parties, by Mungo the Clown</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+  (function() {
+    const clown = document.getElementById('heroClown');
+    const clownSprite = document.getElementById('clownSprite');
+    const clownSpeech = document.getElementById('clownSpeech');
+    let clownAnimating = false;
+    let clownTimer;
+    let speechDismissed = false;
+
+    clown.addEventListener('click', function() {
+      if (clownAnimating) return;
+      clownAnimating = true;
+      clown.classList.add('is-making');
+      clownSpeech.hidden = true;
+      speechDismissed = true;
+      clownSprite.src = clownSprite.dataset.animation + '?run=' + Date.now();
+      clearTimeout(clownTimer);
+      clownTimer = setTimeout(function() {
+        clownSprite.src = clownSprite.dataset.final;
+        clownSpeech.hidden = true;
+        clownAnimating = false;
+      }, 6500);
+    });
+
+    const dateInput = document.getElementById('eventDate');
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    dateInput.value = tomorrow.toISOString().split('T')[0];
+    dateInput.setAttribute('min', today.toISOString().split('T')[0]);
+
+    document.getElementById('bookNowBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const selectedDate = dateInput.value;
+      const eventType = document.getElementById('eventType').value;
+      const eventAddress = document.getElementById('eventAddress').value.trim();
+      if (!selectedDate) { alert('Please select a date.'); return; }
+      const formattedDate = new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-ZA', { year: 'numeric', month: 'long', day: 'numeric' });
+      const addressPart = eventAddress ? ` at *${eventAddress}*` : '';
+      const message = `Hi Mungo! 👋 I'd like to book you for a *${eventType}* on *${formattedDate}*${addressPart}. Please let me know if you're available. Thank you! 🎈`;
+      window.open(`https://wa.me/27746846023?text=${encodeURIComponent(message)}`, '_blank');
+    });
+
+    document.querySelector('.nav-cta a').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    });
+  })();
+</script>
+
+</body>
+</html>
