@@ -468,6 +468,127 @@
     }
     .quote-block i { color: #e63946; font-size: 2rem; margin: 0 8px; }
 
+    /* ===== THE SHOW ===== */
+    .show-section { margin: 10px 0 40px; }
+    .show-headline {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.6rem;
+      color: #1a2e3b;
+      text-align: center;
+      line-height: 1.15;
+      margin: 20px 0 24px;
+    }
+    .show-headline .dessert { color: #e63946; }
+    .show-blurb {
+      background: white;
+      border-radius: 24px;
+      padding: 30px 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #444;
+      border-left: 6px solid #e63946;
+      margin: 0 auto 34px;
+      max-width: 900px;
+    }
+    .show-subtitle {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2rem;
+      color: #1a2e3b;
+      text-align: center;
+      margin: 10px 0 20px;
+    }
+    .show-subtitle i { color: #e63946; margin-right: 8px; }
+    .show-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto 34px;
+    }
+    .show-step {
+      display: flex;
+      gap: 18px;
+      background: white;
+      border-radius: 20px;
+      padding: 22px 26px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      align-items: flex-start;
+      border: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .show-step:hover { border-color: #f4a261; transform: translateX(4px); }
+    .show-step .step-icon {
+      flex: 0 0 auto;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #fff0e6;
+      color: #e63946;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .show-step .step-body h4 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #1a2e3b;
+    }
+    .show-step .step-time {
+      display: inline-block;
+      background: #e63946;
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .show-step .step-body p { color: #555; font-weight: 600; margin-top: 4px; }
+    .show-step.show-extras { background: #fff6f0; border-color: #f4a261; }
+    .specs-wrap {
+      max-width: 720px;
+      margin: 0 auto 10px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      overflow-x: auto;
+    }
+    .specs-table { width: 100%; border-collapse: collapse; min-width: 420px; }
+    .specs-table th, .specs-table td {
+      text-align: left;
+      padding: 16px 26px;
+      border-bottom: 1px solid #f0e5d8;
+      font-weight: 700;
+      color: #1a2e3b;
+    }
+    .specs-table th {
+      background: #1a2e3b;
+      color: white;
+      font-family: 'Fredoka One', cursive;
+      font-weight: 400;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+    .specs-table tr:last-child td { border-bottom: none; }
+    .specs-table td:last-child { text-align: right; color: #e63946; font-weight: 800; }
+    .specs-table tr.total td {
+      background: #fff0e6;
+      font-weight: 800;
+      font-size: 1.05rem;
+      border-top: 2px solid #f4a261;
+    }
+    .show-note {
+      text-align: center;
+      font-weight: 600;
+      color: #777;
+      font-size: 0.95rem;
+      max-width: 720px;
+      margin: 14px auto 0;
+    }
+
     footer {
       text-align: center;
       padding: 30px 0;
@@ -486,6 +607,73 @@
       .wa-btn { width: 100%; justify-content: center; }
       .balloon-spotlight { flex-direction: column; text-align: center; }
       .clown-speech { top: 72px; right: 4%; max-width: 190px; font-size: 0.9rem; }
+      .show-headline { font-size: 1.9rem; }
+      .show-step { padding: 18px; }
+    }
+
+    /* ===== REVIEWS CAROUSEL ===== */
+    .reviews-section { margin: 20px 0 40px; }
+    .reviews-carousel {
+      position: relative;
+      max-width: 900px;
+      margin: 24px auto 0;
+    }
+    .reviews-viewport { overflow: hidden; border-radius: 24px; }
+    .reviews-track { display: flex; transition: transform 0.55s ease; }
+    .review-slide { flex: 0 0 100%; min-width: 100%; padding: 0 6px; }
+    .review-card {
+      background: #fff;
+      border-radius: 24px;
+      border: 2px solid #f4a261;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      padding: 36px 44px 30px;
+      text-align: center;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .review-quote { color: #f4a261; font-size: 2rem; margin-bottom: 10px; }
+    .review-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #2d2d2d;
+      line-height: 1.6;
+      margin: 0 0 18px;
+    }
+    .review-name {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.15rem;
+      color: #e63946;
+      line-height: 1.2;
+    }
+    .review-date { color: #999; font-weight: 700; font-size: 0.82rem; margin-top: 3px; }
+    .review-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 46px; height: 46px; border-radius: 50%;
+      border: 2px solid #1a2e3b; background: #fff; color: #1a2e3b;
+      font-size: 1.05rem; cursor: pointer; z-index: 3; line-height: 1;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      transition: 0.2s;
+    }
+    .review-nav:hover { background: #e63946; border-color: #e63946; color: #fff; }
+    .review-prev { left: -12px; }
+    .review-next { right: -12px; }
+    .review-dots { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .review-dot {
+      width: 11px; height: 11px; border-radius: 50%;
+      background: #d9c9b4; border: none; cursor: pointer; padding: 0;
+      transition: 0.2s;
+    }
+    .review-dot.active { background: #e63946; transform: scale(1.35); }
+
+    @media (max-width: 700px) {
+      .review-card { padding: 26px 20px 22px; min-height: 0; }
+      .review-text { font-size: 0.98rem; }
+      .review-nav { width: 38px; height: 38px; font-size: 0.9rem; }
+      .review-prev { left: 4px; }
+      .review-next { right: 4px; }
     }
   </style>
 </head>
@@ -493,7 +681,7 @@
 
 <!-- TOP BAR -->
 <div class="top-bar">
-  <i class="fas fa-star"></i> 29+ YEARS • NELSON MANDELA’S 80TH BIRTHDAY • INTERNATIONAL STAR <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i> 29+ YEARS • INTERNATIONAL STAR <i class="fas fa-star"></i>
 </div>
 
 <!-- NAV -->
@@ -515,42 +703,113 @@
   <h2>Magic, Laughter & <i>Legacy</i></h2>
   <div class="subhead">One of Cape Town's most decorated clown and entertainer!</div>
   <p class="tagline">
-    From the streets of Avignon to Nelson Mandela's 80th birthday — Mungo brings world-class
-    clowning, magic, and joy to every event.
+    Expect big laughs, silly surprises, a little magic, and the occasional flying balloon animal.
+    Mungo turns every party into a show the kids won't stop talking about.
   </p>
   <div class="hero-image">
     <img src="/mungohorizontal%20copy.png" alt="Mungo the Clown Easter Celebration" />
   </div>
 </div>
 
-<!-- HIGHLIGHTS -->
-<div class="container">
-  <div class="highlights">
-    <div class="highlight-card premium">
-      <div class="icon"><i class="fas fa-medal"></i></div>
-      <h3>Nelson Mandela’s 80th</h3>
-      <p>Performed at Kruger Park</p>
-      <span class="sub">— A national honour</span>
+<!-- ========== THE SHOW ========== -->
+<div class="container show-section" id="show">
+  <h2 class="show-headline">
+    The Variety Comedy Show—Main Course.<br>
+    <span class="dessert">Balloon Chaos—Dessert.</span>
+  </h2>
+
+  <div class="show-blurb">
+    Mungo the Clown offers a Variety Clown Magic Show for Birthdays, Events, and all Happy Occasions.
+    His action-packed, laughter-filled, interactive show includes Clowning, Juggling, Magic tricks,
+    Chinese Yo-Yo, Balloon Comedy, and a wide variety of 50 different animal balloon designs.
+    His skilled, funny, action-packed show offers great value for money and will be enjoyed by
+    children and grown-ups of all ages. He knows exactly how to make your child feel honoured and
+    special, and will make this a magical and lasting memory.
+  </div>
+
+  <h3 class="show-subtitle"><i class="fas fa-list-ol"></i>How the Show Works</h3>
+
+  <div class="show-steps">
+    <div class="show-step">
+      <div class="step-icon"><i class="fas fa-theater-masks"></i></div>
+      <div class="step-body">
+        <h4>The Main Show <span class="step-time">50 mins</span></h4>
+        <p>A full variety comedy experience—clowning, magic, juggling, Chinese Yo-Yo, and balloon comedy. No early balloons, no distractions. Just pure entertainment for the whole family.</p>
+      </div>
     </div>
-    <div class="highlight-card premium">
-      <div class="icon"><i class="fas fa-globe-africa"></i></div>
-      <h3>International Star</h3>
-      <p>France • Spain • Italy • Israel • Egypt • Thailand • Zambia • Zimbabwe</p>
-      <span class="sub">— Global comedy</span>
+
+    <div class="show-step">
+      <div class="step-icon"><i class="fas fa-birthday-cake"></i></div>
+      <div class="step-body">
+        <h4>The Birthday Moment</h4>
+        <p>Right after the balloon comedy segment, the Birthday Child takes centre stage to be honoured—the climax of the show. Mungo twists their chosen balloon animal live, making them the star of the moment as everyone cheers.</p>
+      </div>
     </div>
-    <div class="highlight-card">
-      <div class="icon"><i class="fas fa-user-tie"></i></div>
-      <h3>VP of Zambia’s Family</h3>
-      <p>Hired for granddaughter’s birthday, Lusaka 2013</p>
-      <span class="sub">— Trusted by dignitaries</span>
+
+    <div class="show-step">
+      <div class="step-icon"><i class="fas fa-mug-hot"></i></div>
+      <div class="step-body">
+        <h4>Refreshment Break <span class="step-time">10 mins</span></h4>
+        <p>Time for drinks, toilet trips, and catching breath before the finale.</p>
+      </div>
     </div>
-    <div class="highlight-card">
-      <div class="icon"><i class="fas fa-star"></i></div>
-      <h3>⭐ 5-Star Rated</h3>
-      <p>Facebook • "Mungo the Clown"</p>
-      <span class="sub">— Raving reviews</span>
+
+    <div class="show-step">
+      <div class="step-icon">🎈</div>
+      <div class="step-body">
+        <h4>Balloon Modelling for Everyone <span class="step-time">30–40 mins</span></h4>
+        <p>Every child receives their own custom balloon creation to take home and play with. Fun first. Chaos second.</p>
+      </div>
+    </div>
+
+    <div class="show-step show-extras">
+      <div class="step-icon"><i class="fas fa-gift"></i></div>
+      <div class="step-body">
+        <h4>Optional Extras <span class="step-time">Extend the Party</span></h4>
+        <p>Want to keep going? Add on Face Painting, Piñata, or Party Games—perfect for stretching the celebration even further.</p>
+      </div>
     </div>
   </div>
+
+  <h3 class="show-subtitle"><i class="fas fa-stopwatch"></i>Quick Specs</h3>
+
+  <div class="specs-wrap">
+    <table class="specs-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Duration / Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Show (incl. Birthday moment)</td>
+          <td>50 mins</td>
+        </tr>
+        <tr>
+          <td>Break</td>
+          <td>10 mins</td>
+        </tr>
+        <tr>
+          <td>Balloon modelling</td>
+          <td>30–40 mins</td>
+        </tr>
+        <tr>
+          <td>Optional Extras</td>
+          <td>Face Painting • Piñata • Party Games</td>
+        </tr>
+        <tr class="total">
+          <td>Total</td>
+          <td>Approx. 1.5–1.75 hrs + extras</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="show-note">
+    <i class="fas fa-clock"></i> I usually say <strong>90 minutes to 120 minutes or more</strong>,
+    depending on party size and optional extras selected.
+  </p>
 </div>
 
 <!-- ========== GALLERY – MUNGO IN ACTION ========== -->
@@ -626,9 +885,9 @@
   <!-- ===== BALLOON SPOTLIGHT – USING YOUR EASTER PHOTO ===== -->
   <div class="balloon-spotlight">
     <div class="text">
-      <h3><i class="fas fa-balloon"></i> Signature Balloon Art</h3>
-      <p>Mungo crafts <strong>over 50 different animals</strong> — from poodles to giraffes!<br>
-      His <strong>Balloon Mimology</strong> act combines comedy with incredible creations.</p>
+      <h3><i class="fas fa-balloon"></i> Signature Balloon Art and Comedy Show</h3>
+      <p>Mungo crafts <strong>over 50 different animals</strong> — from Teddy Bears, Dogs, Cats, Squirrels and Bunnies to a Mouse on a motorbike!<br>
+      His <strong>Balloon Comedy</strong> act combines comedy with incredible creations.</p>
       <p style="margin-top: 10px; font-size: 1rem; color: #e63946;">
         <i class="fas fa-camera"></i> <em>Easter Celebration 2026 – Mungo in action!</em>
       </p>
@@ -648,6 +907,129 @@
     <i class="fas fa-quote-right"></i>
     <div style="margin-top: 10px; font-weight: 400; font-style: normal; font-size: 1rem;">— Mungo the Clown</div>
   </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="container reviews-section">
+  <h2 class="section-title"><i class="fas fa-comments"></i> Client Reviews</h2>
+  <div class="reviews-carousel" id="reviewsCarousel">
+    <button class="review-nav review-prev" id="reviewPrev" aria-label="Previous review"><i class="fas fa-chevron-left"></i></button>
+    <div class="reviews-viewport">
+      <div class="reviews-track" id="reviewsTrack">
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Really funny and the kids enjoy him, lovely show</p>
+            <div class="review-name">Yaseen Allie</div>
+            <span class="review-date">6 Jul 2019</span>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Great entertainment... Children enjoyed it so much. Making my booking for my next show already.</p>
+            <div class="review-name">Iram Abrahams Salie</div>
+            <span class="review-date">21 Jun 2019</span>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Mungo awed all the guests at our party, big and small. My son said the best thing about his party was Mungo the clown. Very entertaining. Awesome!</p>
+            <div class="review-name">Lucille Dawkshas</div>
+            <span class="review-date">21 May 2019</span>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Mungo made my son's 3rd Birthday Party a great success and delivered on excellent laughs for kids and parents and would recommend his top class tricks he performed during his shows! Thank you so much! ✨</p>
+            <div class="review-name">Bradley Johnson II</div>
+            <span class="review-date">5 Aug 2024</span>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Mungo the Clown thoroughly entertained our children. They were captivated by his colorful personality and charisma! Our children were excited to each receive a balloon animal and Mungo definitely was a highlight of their school holiday. From all the kids at Nazareth Care, thank you Mungo!</p>
+            <div class="review-name">Tonia Wyngaard</div>
+            <span class="review-date">30 Sept 2019</span>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Outstanding performance from this guy. The little ones had the best time with his unique ability to make the most trivial item a source of hilarious comedy. He exceeded my expectations. I received many positive comments from most of the parents, as he catered for young and old. Yes, I recommend him. 🙂💥👍</p>
+            <div class="review-name">Naziem Rasool</div>
+            <span class="review-date">22 Aug 2023</span>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Die beste Nar wat ek ooit by n' kinderpartytjie gesien het. Bravo Mungo</p>
+            <div class="review-name">Johan Botha</div>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Go Mister Mungo Merry man-- an inspiration and a joy for the kids.. Thankyou for a very entertaining Show--My child thoroughly enjoyed being a volunteer.. The children understood the show which was very important...</p>
+            <div class="review-name">Janine Oelz</div>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">An absolute winner--cannot beat the sounds of Kids laughter-we all enjoyed the show and made our day really special</p>
+            <div class="review-name">Monique Gardner</div>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Fantastic effort-Huge party -very difficult audience but managed to get alls attention-Well done-would definitely recommend</p>
+            <div class="review-name">Lisa Searson</div>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Thankyou for a magnificent show kept the kids thoroughly entertained_Well done, Debbie...</p>
+            <div class="review-name">Debbie</div>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Funny, caring and entertaining. Lovely man.</p>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <i class="fas fa-quote-left review-quote"></i>
+            <p class="review-text">Mungo is unique. He isn't just a smile maker, he's a ray of human sunshine.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <button class="review-nav review-next" id="reviewNext" aria-label="Next review"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="review-dots" id="reviewDots"></div>
 </div>
 
 <!-- BOOKING -->
@@ -712,18 +1094,6 @@
   </div>
 </div>
 
-<!-- CAREER TIMELINE -->
-<div class="container">
-  <div style="background: #fff; padding: 24px 28px; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 20px; border: 1px solid #eee;">
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; text-align: center;">
-      <div><strong style="font-size: 1.6rem; color: #e63946;">1980s</strong><br><span style="font-weight:600;">Avignon Festival</span><br><span style="color:#888;">Inspiration struck</span></div>
-      <div><strong style="font-size: 1.6rem; color: #e63946;">1997</strong><br><span style="font-weight:600;">Mandela’s 80th</span><br><span style="color:#888;">Kruger Park, SA</span></div>
-      <div><strong style="font-size: 1.6rem; color: #e63946;">2013</strong><br><span style="font-weight:600;">Zambia VP</span><br><span style="color:#888;">Lusaka, private hire</span></div>
-      <div><strong style="font-size: 1.6rem; color: #e63946;">2026</strong><br><span style="font-weight:600;">Still making smiles</span><br><span style="color:#888;">29+ years strong</span></div>
-    </div>
-  </div>
-</div>
-
 <!-- FOOTER -->
 <footer class="container">
   <p><i class="fas fa-heart"></i> Mungo the Clown • Cape Town, South Africa • <i class="fab fa-whatsapp"></i> 074 684 6023</p>
@@ -739,6 +1109,40 @@
     let clownAnimating = false;
     let clownTimer;
     let speechDismissed = false;
+    let clownFrames = null;
+    let clownFramesLoading = false;
+
+    // Decode the animation GIF's frames up front so the first frame can be skipped.
+    async function loadClownFrames() {
+      if (clownFrames || clownFramesLoading) return;
+      clownFramesLoading = true;
+      try {
+        if (typeof ImageDecoder === 'undefined') throw new Error('ImageDecoder not supported');
+        const resp = await fetch(clownSprite.dataset.animation);
+        const data = await resp.arrayBuffer();
+        const decoder = new ImageDecoder({ data: data, type: 'image/gif' });
+        await decoder.tracks.ready;
+        const count = decoder.tracks.selectedTrack.frameCount;
+        const frames = [];
+        for (let i = 1; i < count; i++) { // skip the first frame entirely
+          const result = await decoder.decode({ frameIndex: i });
+          const image = result.image;
+          const duration = image.duration > 0 ? image.duration / 1000 : (i === count - 1 ? 2160 : 720);
+          const canvas = document.createElement('canvas');
+          canvas.width = image.displayWidth;
+          canvas.height = image.displayHeight;
+          canvas.getContext('2d').drawImage(image, 0, 0);
+          image.close();
+          const blob = await new Promise(function(resolve) { canvas.toBlob(resolve, 'image/png'); });
+          frames.push({ url: URL.createObjectURL(blob), duration: duration });
+        }
+        clownFrames = frames;
+      } catch (err) {
+        clownFrames = null;
+      } finally {
+        clownFramesLoading = false;
+      }
+    }
 
     clown.addEventListener('click', function() {
       if (clownAnimating) return;
@@ -746,14 +1150,35 @@
       clown.classList.add('is-making');
       clownSpeech.hidden = true;
       speechDismissed = true;
-      clownSprite.src = clownSprite.dataset.animation + '?run=' + Date.now();
       clearTimeout(clownTimer);
-      clownTimer = setTimeout(function() {
-        clownSprite.src = clownSprite.dataset.final;
-        clownSpeech.hidden = true;
-        clownAnimating = false;
-      }, 6500);
+
+      if (clownFrames && clownFrames.length) {
+        let frameIndex = 0;
+        function playNextFrame() {
+          if (frameIndex >= clownFrames.length) {
+            clownSprite.src = clownSprite.dataset.final;
+            clownSpeech.hidden = true;
+            clownAnimating = false;
+            return;
+          }
+          const frame = clownFrames[frameIndex++];
+          clownSprite.src = frame.url;
+          clownTimer = setTimeout(playNextFrame, frame.duration);
+        }
+        playNextFrame();
+      } else {
+        // Fallback: play the GIF normally (first frame included).
+        clownSprite.src = clownSprite.dataset.animation + '?run=' + Date.now();
+        clownTimer = setTimeout(function() {
+          clownSprite.src = clownSprite.dataset.final;
+          clownSpeech.hidden = true;
+          clownAnimating = false;
+        }, 6500);
+        loadClownFrames();
+      }
     });
+
+    loadClownFrames();
 
     const dateInput = document.getElementById('eventDate');
     const today = new Date();
@@ -778,6 +1203,64 @@
       e.preventDefault();
       document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
     });
+  })();
+</script>
+
+<script>
+  (function() {
+    const track = document.getElementById('reviewsTrack');
+    const slides = track.querySelectorAll('.review-slide');
+    const prevBtn = document.getElementById('reviewPrev');
+    const nextBtn = document.getElementById('reviewNext');
+    const dotsWrap = document.getElementById('reviewDots');
+    let index = 0;
+    let timer;
+
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'review-dot';
+      dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+      dot.addEventListener('click', function() { goTo(i); restart(); });
+      dotsWrap.appendChild(dot);
+    }
+    const dots = dotsWrap.querySelectorAll('.review-dot');
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      for (let d = 0; d < dots.length; d++) {
+        dots[d].classList.toggle('active', d === index);
+      }
+    }
+
+    function next() { goTo(index + 1); }
+    function prev() { goTo(index - 1); }
+
+    function restart() {
+      clearInterval(timer);
+      timer = setInterval(next, 6000);
+    }
+
+    prevBtn.addEventListener('click', function() { prev(); restart(); });
+    nextBtn.addEventListener('click', function() { next(); restart(); });
+
+    const carousel = document.getElementById('reviewsCarousel');
+    carousel.addEventListener('mouseenter', function() { clearInterval(timer); });
+    carousel.addEventListener('mouseleave', restart);
+    carousel.addEventListener('touchstart', function() { clearInterval(timer); }, { passive: true });
+    carousel.addEventListener('touchend', restart, { passive: true });
+
+    let startX = null;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) { if (dx < 0) { next(); } else { prev(); } restart(); }
+      startX = null;
+    }, { passive: true });
+
+    goTo(0);
+    restart();
   })();
 </script>
 
